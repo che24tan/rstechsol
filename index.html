@@ -1,0 +1,946 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="RS Techsol (RS IT Solutions) - Websites & software for clinics and pharmacies in Nizamabad. Fast delivery, affordable packages, WhatsApp & Google Map integration." />
+  <title>RS Techsol | RS IT Solutions - Nizamabad</title>
+
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#0f1b33;
+      --text:#e8eefc;
+      --muted:#b9c7ee;
+      --line:rgba(255,255,255,.10);
+      --brand:#4f8cff;
+      --brand2:#22c55e;
+      --shadow: 0 12px 30px rgba(0,0,0,.35);
+      --radius:18px;
+      --radius2:26px;
+      --max:1100px;
+    }
+
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
+      background: radial-gradient(1200px 600px at 20% 0%, rgba(79,140,255,.18), transparent 60%),
+                  radial-gradient(900px 500px at 80% 10%, rgba(34,197,94,.14), transparent 55%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    a{ color:inherit; text-decoration:none; }
+    .container{
+      width: min(100% - 32px, var(--max));
+      margin-inline:auto;
+    }
+
+    /* NAV */
+    .nav{
+      position: sticky;
+      top:0;
+      z-index: 50;
+      backdrop-filter: blur(10px);
+      background: rgba(11,18,32,.65);
+      border-bottom:1px solid var(--line);
+    }
+    .nav-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding: 14px 0;
+      gap:16px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width: 220px;
+    }
+    .logo{
+      width:40px;height:40px;
+      border-radius:14px;
+      background: linear-gradient(135deg, rgba(79,140,255,1), rgba(34,197,94,1));
+      box-shadow: 0 10px 25px rgba(79,140,255,.25);
+      display:grid;
+      place-items:center;
+      font-weight:800;
+      letter-spacing:.5px;
+    }
+    .brand h1{
+      font-size: 14px;
+      line-height:1.1;
+      margin:0;
+      font-weight:800;
+    }
+    .brand p{
+      margin:0;
+      font-size:12px;
+      color:var(--muted);
+    }
+    .menu{
+      display:flex;
+      gap:18px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .menu a{
+      font-size:13px;
+      color:var(--muted);
+      padding:8px 10px;
+      border-radius: 12px;
+      transition: .2s ease;
+    }
+    .menu a:hover{
+      color:var(--text);
+      background: rgba(255,255,255,.06);
+    }
+
+    /* HERO */
+    .hero{
+      padding: 42px 0 26px;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap:22px;
+      align-items:stretch;
+    }
+    .hero-card{
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border: 1px solid var(--line);
+      border-radius: var(--radius2);
+      padding: 26px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow:hidden;
+    }
+    .hero-card:before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background: radial-gradient(700px 220px at 10% 0%, rgba(79,140,255,.18), transparent 55%),
+                  radial-gradient(700px 220px at 90% 10%, rgba(34,197,94,.14), transparent 60%);
+      pointer-events:none;
+    }
+    .hero-card > *{ position:relative; }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 12px;
+      border-radius: 999px;
+      background: rgba(79,140,255,.12);
+      border: 1px solid rgba(79,140,255,.25);
+      color: var(--muted);
+      font-size: 13px;
+      width: fit-content;
+    }
+    .title{
+      margin: 14px 0 10px;
+      font-size: clamp(26px, 3.4vw, 40px);
+      line-height:1.15;
+      font-weight: 900;
+      letter-spacing: -.3px;
+    }
+    .subtitle{
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: 15px;
+      max-width: 62ch;
+    }
+    .points{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin: 14px 0 18px;
+      padding:0;
+      list-style:none;
+    }
+    .points li{
+      font-size: 13px;
+      color: var(--text);
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.05);
+      border: 1px solid var(--line);
+    }
+
+    .cta{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top: 10px;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.05);
+      color: var(--text);
+      font-weight: 700;
+      font-size: 14px;
+      transition: .2s ease;
+      cursor:pointer;
+    }
+    .btn:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.08);
+    }
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(79,140,255,1), rgba(79,140,255,.75));
+      border-color: rgba(79,140,255,.35);
+      box-shadow: 0 12px 30px rgba(79,140,255,.25);
+    }
+    .btn.primary:hover{
+      background: linear-gradient(135deg, rgba(79,140,255,1), rgba(34,197,94,.70));
+    }
+    .btn.green{
+      background: linear-gradient(135deg, rgba(34,197,94,1), rgba(34,197,94,.72));
+      border-color: rgba(34,197,94,.35);
+      box-shadow: 0 12px 30px rgba(34,197,94,.18);
+    }
+
+    .side-card{
+      background: rgba(255,255,255,.04);
+      border:1px solid var(--line);
+      border-radius: var(--radius2);
+      padding: 20px;
+      box-shadow: var(--shadow);
+    }
+    .side-card h3{
+      margin:0 0 10px;
+      font-size: 15px;
+      font-weight: 900;
+    }
+    .side-card p{
+      margin:0;
+      color:var(--muted);
+      font-size: 13px;
+    }
+    .mini-grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:12px;
+      margin-top: 14px;
+    }
+    .mini{
+      padding:14px;
+      border-radius: 16px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+    }
+    .mini strong{ display:block; font-size: 13px; }
+    .mini span{ color:var(--muted); font-size: 12px; }
+
+    /* SECTIONS */
+    section{
+      padding: 22px 0;
+    }
+    .section-title{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom: 14px;
+    }
+    .section-title h2{
+      margin:0;
+      font-size: 18px;
+      font-weight: 900;
+      letter-spacing: -.2px;
+    }
+    .section-title p{
+      margin:0;
+      color: var(--muted);
+      font-size: 13px;
+      max-width: 62ch;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+    }
+    .card{
+      background: rgba(255,255,255,.04);
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+    .card h3{
+      margin:0 0 8px;
+      font-size: 15px;
+      font-weight: 900;
+    }
+    .card p{
+      margin:0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .list{
+      margin: 12px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .list li{ margin: 6px 0; }
+
+    /* PRICING */
+    .pricing{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+      align-items:stretch;
+    }
+    .price{
+      position:relative;
+      overflow:hidden;
+    }
+    .price .tag{
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      font-size: 12px;
+      color: var(--muted);
+      padding: 6px 10px;
+      border-radius: 999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      width: fit-content;
+    }
+    .price h3{
+      margin: 10px 0 6px;
+      font-size: 16px;
+      font-weight: 900;
+    }
+    .money{
+      font-size: 26px;
+      font-weight: 1000;
+      letter-spacing: -.4px;
+      margin: 6px 0 8px;
+    }
+    .money small{
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+    .note{
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .price .btn{
+      width:100%;
+      margin-top: 10px;
+    }
+    .highlight{
+      border-color: rgba(79,140,255,.45);
+      background: linear-gradient(180deg, rgba(79,140,255,.10), rgba(255,255,255,.03));
+    }
+    .ribbon{
+      position:absolute;
+      top:14px; right:14px;
+      font-size: 11px;
+      padding:6px 10px;
+      border-radius: 999px;
+      background: rgba(79,140,255,.18);
+      border:1px solid rgba(79,140,255,.35);
+      color: var(--text);
+      font-weight: 800;
+    }
+
+    /* FAQ */
+    details{
+      border:1px solid var(--line);
+      border-radius: 16px;
+      padding: 14px 16px;
+      background: rgba(255,255,255,.03);
+      box-shadow: var(--shadow);
+    }
+    details + details{ margin-top: 10px; }
+    summary{
+      cursor:pointer;
+      font-weight: 900;
+      font-size: 14px;
+    }
+    details p{
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* CONTACT FORM */
+    form{
+      display:grid;
+      gap:10px;
+      margin-top: 10px;
+    }
+    input, textarea{
+      width:100%;
+      padding: 12px 12px;
+      border-radius: 14px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+      outline:none;
+      font-size: 14px;
+    }
+    textarea{ min-height: 120px; resize: vertical; }
+    input::placeholder, textarea::placeholder{ color: rgba(185,199,238,.75); }
+
+    /* FOOTER */
+    footer{
+      padding: 26px 0 34px;
+      border-top:1px solid var(--line);
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .footer-grid{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+    .footer-grid strong{ color: var(--text); }
+
+    /* Floating Buttons */
+    .float{
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 60;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+    .float a{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width: 52px;
+      height: 52px;
+      border-radius: 18px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.06);
+      box-shadow: var(--shadow);
+      transition:.2s ease;
+      font-weight: 900;
+    }
+    .float a:hover{ transform: translateY(-2px); }
+    .float .wa{
+      background: linear-gradient(135deg, rgba(34,197,94,1), rgba(34,197,94,.70));
+      border-color: rgba(34,197,94,.35);
+    }
+    .float .call{
+      background: linear-gradient(135deg, rgba(79,140,255,1), rgba(79,140,255,.75));
+      border-color: rgba(79,140,255,.35);
+    }
+
+    /* Responsive */
+    @media (max-width: 900px){
+      .hero-grid{ grid-template-columns: 1fr; }
+      .grid{ grid-template-columns: 1fr; }
+      .pricing{ grid-template-columns: 1fr; }
+      .brand{ min-width: auto; }
+      .menu{ display:none; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- WhatsApp + Call details -->
+  <!-- WhatsApp format requires country code without + -->
+  <!-- India: 91 -->
+  <!-- Your number: 7981382471 -->
+  <!-- WhatsApp link: https://wa.me/917981382471 -->
+  <div class="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a class="brand" href="#top">
+          <div class="logo">RS</div>
+          <div>
+            <h1>RS Techsol <span style="opacity:.75;">(RS IT Solutions)</span></h1>
+            <p>Websites & Software • Nizamabad</p>
+          </div>
+        </a>
+
+        <nav class="menu" aria-label="Primary Navigation">
+          <a href="#services">Services</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#portfolio">Portfolio</a>
+          <a href="#testimonials">Testimonials</a>
+          <a href="#process">Process</a>
+          <a href="#faq">FAQs</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <a class="btn green" href="#contact">Get Free Demo</a>
+      </div>
+    </div>
+  </div>
+
+  <main id="top" class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-card">
+          <div class="badge">📍 Nizamabad • 🏥 Clinics & 💊 Pharmacies</div>
+
+          <h2 class="title">
+            Websites & software systems that help
+            <span style="color: var(--brand);">Clinics</span> and
+            <span style="color: var(--brand2);">Pharmacies</span>
+            get more enquiries
+          </h2>
+
+          <p class="subtitle">
+            RS Techsol builds mobile-friendly websites, WhatsApp enquiry systems, and simple admin dashboards.
+            We focus on fast delivery, transparent pricing, and clean design that builds trust.
+          </p>
+
+          <ul class="points">
+            <li>⚡ Delivery in 3–5 days</li>
+            <li>📱 100% Responsive</li>
+            <li>💬 WhatsApp appointment/order</li>
+            <li>🗺️ Google Map + Reviews</li>
+            <li>🧾 Clear milestones</li>
+          </ul>
+
+          <div class="cta">
+            <a class="btn primary" href="https://wa.me/917981382471?text=Hi%20RS%20Techsol%2C%20I%20want%20a%20website%20for%20my%20clinic%2Fpharmacy.%20Please%20share%20a%20demo%20and%20pricing." target="_blank" rel="noopener">
+              💬 WhatsApp Now
+            </a>
+            <a class="btn" href="tel:+917981382471">📞 Call Now</a>
+            <a class="btn" href="#pricing">💰 View Packages</a>
+          </div>
+
+          <p style="margin:14px 0 0; color:var(--muted); font-size:13px;">
+            ⭐ Starting from <strong style="color:var(--text);">₹8,000</strong>. Ideal for doctors, clinics, diagnostics & medical stores.
+          </p>
+        </div>
+
+        <aside class="side-card">
+          <h3>Quick Details</h3>
+          <p>Best for: Doctors, Clinics, Pharmacies, Diagnostics, Hospitals</p>
+
+          <div class="mini-grid">
+            <div class="mini">
+              <strong>📌 Free Consultation</strong>
+              <span>We suggest the best package for your needs.</span>
+            </div>
+            <div class="mini">
+              <strong>🧩 Modern UI</strong>
+              <span>Clean layout that looks premium.</span>
+            </div>
+            <div class="mini">
+              <strong>🤝 Local Support</strong>
+              <span>Nizamabad-based support & quick updates.</span>
+            </div>
+          </div>
+
+          <div style="margin-top:14px; padding-top:14px; border-top:1px solid var(--line);">
+            <p style="margin:0; font-size:13px; color:var(--muted);">
+              <strong style="color:var(--text);">Note:</strong> Domain & hosting are purchased in the client’s name at actual cost.
+            </p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <section id="services">
+    <div class="container">
+      <div class="section-title">
+        <div>
+          <h2>Services</h2>
+          <p>Focused services for clinics & pharmacies — fast to deliver and easy to maintain.</p>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <h3>🏥 Clinic Website</h3>
+          <p>Professional clinic website with doctor profile, services, appointment enquiry & contact.</p>
+          <ul class="list">
+            <li>Home, About, Services, Appointment, Contact</li>
+            <li>WhatsApp appointment button</li>
+            <li>Google Map integration</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>💊 Pharmacy Website</h3>
+          <p>Medical store website with WhatsApp order support and Google location.</p>
+          <ul class="list">
+            <li>Store info + working hours</li>
+            <li>WhatsApp prescription/order button</li>
+            <li>Contact + Map + Reviews link</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>📋 Enquiry / Appointment System</h3>
+          <p>Simple form + dashboard to manage enquiries and follow-ups (optional upgrade).</p>
+          <ul class="list">
+            <li>Enquiry capture form</li>
+            <li>Basic admin panel</li>
+            <li>Future expansion supported</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing">
+    <div class="container">
+      <div class="section-title">
+        <div>
+          <h2>Packages & Pricing (Nizamabad)</h2>
+          <p>Budget for quick start, premium for growth. Transparent pricing & clear milestones.</p>
+        </div>
+      </div>
+
+      <div class="pricing">
+        <div class="card price">
+          <div class="tag">🟢 Budget</div>
+          <h3>Pharmacy Starter</h3>
+          <div class="money">₹8,000 <small>+ domain/hosting</small></div>
+          <p class="note">Perfect for medical stores to receive WhatsApp orders & enquiries.</p>
+          <ul class="list">
+            <li>4-page website</li>
+            <li>WhatsApp order button</li>
+            <li>Google Map + Contact</li>
+            <li>Delivery: 3 days</li>
+          </ul>
+          <a class="btn green" href="#contact">Get Quote</a>
+        </div>
+
+        <div class="card price highlight">
+          <div class="ribbon">Most Popular</div>
+          <div class="tag">🔵 Standard</div>
+          <h3>Clinic Starter</h3>
+          <div class="money">₹10,000 <small>+ domain/hosting</small></div>
+          <p class="note">Best for doctors & clinics to get more calls and appointments.</p>
+          <ul class="list">
+            <li>5-page clinic website</li>
+            <li>WhatsApp appointment button</li>
+            <li>Google Map + Reviews link</li>
+            <li>Delivery: 3–5 days</li>
+          </ul>
+          <a class="btn primary" href="#contact">Get Free Demo</a>
+        </div>
+
+        <div class="card price">
+          <div class="tag">🟣 Premium</div>
+          <h3>Clinic Professional</h3>
+          <div class="money">₹18k–₹25k <small>+ domain/hosting</small></div>
+          <p class="note">For clinics that want appointment enquiries + admin dashboard.</p>
+          <ul class="list">
+            <li>Appointment request form</li>
+            <li>Basic admin panel</li>
+            <li>Improved SEO structure</li>
+            <li>Delivery: 7–10 days</li>
+          </ul>
+          <a class="btn" href="#contact">Discuss Premium</a>
+        </div>
+      </div>
+
+      <div style="margin-top:14px; padding:14px; border:1px solid var(--line); border-radius:16px; background: rgba(255,255,255,.03);">
+        <p style="margin:0; color:var(--muted); font-size:13px;">
+          <strong style="color:var(--text);">Domain & Hosting Cost (Yearly):</strong>
+          Domain ₹800–₹1,200/year • Hosting ₹1,500–₹3,000/year (paid at actual cost in client’s name).
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section id="portfolio">
+    <div class="container">
+      <div class="section-title">
+        <div>
+          <h2>Portfolio (Sample Work)</h2>
+          <p>We can show demo designs before starting. Here are sample project formats.</p>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <h3>🏥 Clinic Website Demo</h3>
+          <p>Clean design with services, timings, WhatsApp appointment & map.</p>
+          <ul class="list">
+            <li>Doctor profile + services</li>
+            <li>Appointment enquiry form</li>
+            <li>Google Map + Reviews</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>💊 Pharmacy Website Demo</h3>
+          <p>Simple medical store website with WhatsApp order and store timings.</p>
+          <ul class="list">
+            <li>WhatsApp prescription upload</li>
+            <li>Working hours + location</li>
+            <li>Call & enquiry buttons</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>📋 Enquiry Dashboard (Optional)</h3>
+          <p>Basic admin panel to manage enquiries and follow-ups (premium upgrade).</p>
+          <ul class="list">
+            <li>View enquiries in one place</li>
+            <li>Export to Excel (optional)</li>
+            <li>Future upgrades supported</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials">
+    <div class="container">
+      <div class="section-title">
+        <div>
+          <h2>Testimonials</h2>
+          <p>After your first 2 clients, replace these with real WhatsApp reviews.</p>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <h3>⭐ Clinic Owner</h3>
+          <p>“Very professional website. Got patient enquiries through WhatsApp. Fast delivery!”</p>
+          <p style="margin-top:10px; color:var(--muted); font-size:12px;">— Nizamabad</p>
+        </div>
+
+        <div class="card">
+          <h3>⭐ Pharmacy Owner</h3>
+          <p>“Good design and quick response. WhatsApp order feature is very useful.”</p>
+          <p style="margin-top:10px; color:var(--muted); font-size:12px;">— Nizamabad</p>
+        </div>
+
+        <div class="card">
+          <h3>⭐ Diagnostic Center</h3>
+          <p>“Nice website with Google map integration. Very smooth process.”</p>
+          <p style="margin-top:10px; color:var(--muted); font-size:12px;">— Nizamabad</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="process">
+    <div class="container">
+      <div class="section-title">
+        <div>
+          <h2>Work Process</h2>
+          <p>Clear milestones so you always know what’s happening and when you’ll receive delivery.</p>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <h3>1) Requirement Call</h3>
+          <p>We understand your clinic/pharmacy needs in 10–15 minutes.</p>
+          <ul class="list">
+            <li>Business details</li>
+            <li>Services & timings</li>
+            <li>Photos & logo (if available)</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>2) Demo + Confirmation</h3>
+          <p>We share a sample layout and confirm pages + features.</p>
+          <ul class="list">
+            <li>Design selection</li>
+            <li>Content finalization</li>
+            <li>Timeline confirmation</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>3) Build → Review → Launch</h3>
+          <p>We deliver fast with a clean review process.</p>
+          <ul class="list">
+            <li>First demo in 2–3 days</li>
+            <li>Changes as required</li>
+            <li>Final launch + support</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="margin-top:14px; padding:16px; border-radius:16px; border:1px solid var(--line); background: rgba(255,255,255,.03);">
+        <p style="margin:0; color:var(--muted); font-size:13px;">
+          <strong style="color:var(--text);">Payment Terms:</strong>
+          30% advance to start • 40% after first demo • 30% before final delivery.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="container">
+      <div class="section-title">
+        <div>
+          <h2>FAQs</h2>
+          <p>Answers to common questions from clinic & pharmacy owners.</p>
+        </div>
+      </div>
+
+      <details>
+        <summary>Do you provide domain and hosting?</summary>
+        <p>
+          Yes, we guide you to purchase domain and hosting. It will be purchased in <strong>your name</strong> and billed at <strong>actual cost</strong>.
+        </p>
+      </details>
+
+      <details>
+        <summary>Is domain & hosting included in your package price?</summary>
+        <p>
+          No. Our package price is for website design & development only.
+          Domain and hosting are separate yearly charges (typically ₹2,300–₹4,200/year total).
+        </p>
+      </details>
+
+      <details>
+        <summary>How quickly can you deliver my website?</summary>
+        <p>
+          Pharmacy Starter: ~3 working days. Clinic Starter: 3–5 working days. Premium projects: 7–10 days depending on features.
+        </p>
+      </details>
+
+      <details>
+        <summary>Will my website work on mobile?</summary>
+        <p>
+          Yes. All our websites are fully responsive and mobile-friendly.
+        </p>
+      </details>
+
+      <details>
+        <summary>Do you add WhatsApp and Google Map?</summary>
+        <p>
+          Yes. WhatsApp button and Google Map integration are included in all packages.
+        </p>
+      </details>
+
+      <details>
+        <summary>What are the payment terms?</summary>
+        <p>
+          30% advance to start, 40% after first demo, and 30% before final delivery.
+        </p>
+      </details>
+
+      <details>
+        <summary>Can you update the website later?</summary>
+        <p>
+          Yes. We provide support for small changes. We can also offer ongoing maintenance if needed.
+        </p>
+      </details>
+
+      <details>
+        <summary>What if I don’t like the design?</summary>
+        <p>
+          We share a demo before final delivery. You can request changes and we’ll update it accordingly.
+        </p>
+      </details>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="section-title">
+        <div>
+          <h2>Contact</h2>
+          <p>Want a free demo? Message us on WhatsApp, call, or submit this form.</p>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <h3>💬 WhatsApp</h3>
+          <p>Fastest way to connect. We reply quickly.</p>
+          <div style="margin-top:12px;">
+            <a class="btn green" href="https://wa.me/917981382471?text=Hi%20RS%20Techsol%2C%20I%20want%20a%20website%20for%20my%20clinic%2Fpharmacy.%20Please%20share%20a%20demo%20and%20pricing." target="_blank" rel="noopener">
+              Message on WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>📞 Call</h3>
+          <p>Prefer a quick call? Let’s discuss your requirements.</p>
+          <div style="margin-top:12px;">
+            <a class="btn primary" href="tel:+917981382471">Call Now</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>📩 Contact Form (Free)</h3>
+          <p style="margin-bottom:6px;">
+            Fill details and we’ll call you back.
+          </p>
+
+          <!-- FORM: FREE using Formspree -->
+          <!-- STEP: Create Formspree account -> New Form -> copy your form endpoint URL -->
+          <!-- Replace the action URL below with your Formspree endpoint -->
+         <form action="https://formspree.io/f/xojeqbnj" method="POST">
+
+            <input type="text" name="name" placeholder="Your Name" required />
+            <input type="tel" name="phone" placeholder="Phone Number" required />
+            <input type="text" name="business" placeholder="Clinic / Pharmacy Name" />
+            <textarea name="message" placeholder="Tell us what you need (website / appointment / WhatsApp orders)"></textarea>
+            <button class="btn green" type="submit">Submit Enquiry</button>
+          </form>
+
+          <p style="margin:10px 0 0; color:var(--muted); font-size:12px;">
+      
+          </p>
+        </div>
+      </div>
+
+      <div style="margin-top:14px; padding:16px; border-radius:16px; border:1px solid var(--line); background: rgba(255,255,255,.03);">
+        <p style="margin:0; color:var(--muted); font-size:13px;">
+          <strong style="color:var(--text);">Tip:</strong> If you already have a Google Business Profile, we’ll help you link it to your website.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <strong>RS Techsol (RS IT Solutions)</strong><br />
+          Websites & Software for Clinics & Pharmacies — Nizamabad
+        </div>
+        <div>
+          <span>© <span id="year"></span> RS Techsol. All rights reserved.</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="float" aria-label="Quick Actions">
+    <a class="wa" href="https://wa.me/917981382471?text=Hi%20RS%20Techsol%2C%20I%20want%20a%20website%20for%20my%20clinic%2Fpharmacy.%20Please%20share%20a%20demo%20and%20pricing." target="_blank" rel="noopener" title="WhatsApp">WA</a>
+    <a class="call" href="tel:+917981382471" title="Call">Call</a>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
